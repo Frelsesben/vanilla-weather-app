@@ -13,8 +13,81 @@
     <title>Vanilla Weather App 🍦</title>
   </head>
   <body>
-    <div class="container">
-      <h1>Hello</h1>
+    <div class="container" id="box">
+      <header>
+        <h1>Hello</h1>
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player
+          src="https://assets4.lottiefiles.com/packages/lf20_jqoj498s.json"
+          id="animation"
+          background="transparent"
+          speed="0.2"
+          style="width: 300px; height: 300px"
+          loop
+          autoplay
+        ></lottie-player>
+      </header>
+      <div class="row">
+        <div class="col-6 text-center">
+          <h3>Upcoming hours</h3>
+          <ul class="list-group">
+            <li class="list-group-item">
+              ☀️ <br />
+              13:00 <br />
+              11°C
+            </li>
+            <li class="list-group-item">
+              ☀️ <br />
+              13:00 <br />
+              11°C
+            </li>
+            <li class="list-group-item">
+              ☀️ <br />
+              13:00 <br />
+              11°C
+            </li>
+            <li class="list-group-item">
+              ☀️ <br />
+              13:00 <br />
+              11°C
+            </li>
+          </ul>
+        </div>
+        <div class="col-6 text-center">
+          <h3>Upcoming days</h3>
+          <ul class="list-group">
+            <li class="list-group-item">
+              ☀️ <br />
+              13:00 <br />
+              11°C
+            </li>
+            <li class="list-group-item">
+              ☀️ <br />
+              13:00 <br />
+              11°C
+            </li>
+            <li class="list-group-item">
+              ☀️ <br />
+              13:00 <br />
+              11°C
+            </li>
+            <li class="list-group-item">
+              ☀️ <br />
+              13:00 <br />
+              11°C
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <footer>
+        <h6>
+          Coded by
+          <a href="https://github.com/Frelsesben/Weather-app" target="_blank"
+            >Frida Freiesleben</a
+          >
+        </h6>
+      </footer>
     </div>
     <script src="src/app.js"></script>
   </body>
