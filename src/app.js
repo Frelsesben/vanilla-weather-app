@@ -73,6 +73,27 @@ minutesElement.innerHTML = `${minutes}`;
 
 //Date and time end
 
+//Search form start
+
+function search(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#cityInputElement");
+  let chosenCity = cityInputElement.value;
+  chosenCity = chosenCity.trim().toLowerCase();
+  let cityElement = document.querySelector("#cityElement");
+  cityElement.innerHTML =
+    chosenCity.charAt(0).toUpperCase() + chosenCity.slice(1);
+  let weatherApiKey = "ad4802884d586a02c0e38d20a9a32180";
+  let weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${chosenCity}&appid=${weatherApiKey}&units=metric`;
+
+  axios.get(weatherApiUrl).then(displayTemperature);
+}
+
+let form = document.querySelector("#searchForm");
+form.addEventListener("submit", search);
+
+//Search form end
+
 //Geolocation start
 
 function showWeather(response) {

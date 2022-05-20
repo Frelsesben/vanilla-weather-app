@@ -15,7 +15,6 @@ h1 {
   padding: 50px 10px 5px 10px;
   font-size: xx-large;
   color: #383233;
-  line-height: 50%;
 }
 
 h2 {
@@ -63,5 +62,5 @@ h6 {
 }
 
 #iconElement {
-  max-width: 50px;
+  max-width: 40px;
 }
