@@ -17,9 +17,17 @@
     <div class="container" id="box">
       <header>
         <h1>
-          It is temperature <sup>°C</sup> with description in city right now
+          It is <span id="tempElement"></span><sup>°C</sup> with
+          <span id="descriptionElement"></span
+          ><img src="" alt="weather icon" id="iconElement" /> in
+          <span id="cityElement"></span> right now
         </h1>
-        <h2>(day, month date, year at hours:minutes)</h2>
+        <h2>
+          Last updated: <span id="dayElement"></span>day,
+          <span id="monthElement"></span> <span id="dateElement"></span>,
+          <span id="yearElement"></span> at
+          <span id="hoursElement"></span>:<span id="minutesElement"></span>
+        </h2>
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
         <lottie-player
           src="https://assets6.lottiefiles.com/packages/lf20_iombyzfq.json"
@@ -31,9 +39,28 @@
           autoplay
         ></lottie-player>
       </header>
+      <div>
+        <h3>
+          Choose current location ➡<button
+            type="button"
+            class="btn btn-link btn-sm"
+            id="locationButton"
+          >
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player
+              src="https://assets1.lottiefiles.com/packages/lf20_ptfmt0ts.json"
+              background="transparent"
+              speed="0.75"
+              style="width: 40px; height: 40px"
+              loop
+              autoplay
+            ></lottie-player>
+          </button>
+        </h3>
+      </div>
       <div class="row">
         <div class="col-6 text-center">
-          <h3>Upcoming hours</h3>
+          <h4>Upcoming hours</h4>
           <ul class="list-group">
             <li class="list-group-item">
               ☀️ <br />
@@ -58,7 +85,7 @@
           </ul>
         </div>
         <div class="col-6 text-center">
-          <h3>Upcoming days</h3>
+          <h4>Upcoming days</h4>
           <ul class="list-group">
             <li class="list-group-item">
               ☀️ <br />

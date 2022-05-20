@@ -10,29 +10,36 @@ a:hover {
   color: #ffcb6d;
 }
 
-h2,
-h3,
-h4,
-h5 {
-  text-align: center;
-  margin: 5px;
-  padding: 5px;
-  color: #383233;
-}
-
 h1 {
   text-align: center;
   padding: 50px 10px 5px 10px;
   font-size: xx-large;
   color: #383233;
+  line-height: 50%;
 }
 
 h2 {
-  font-size: large;
+  font-size: small;
+  font-weight: bold;
+  color: #518984;
+  margin: 5px;
+  padding: 15px 10px 15px 10px;
+  text-align: left;
 }
 
 h3 {
+  text-align: right;
+  font-size: small;
+  font-weight: bold;
+  color: #d9534d;
+}
+
+h4 {
   font-size: x-large;
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  color: #383233;
 }
 h6 {
   text-align: center;
@@ -47,10 +54,14 @@ h6 {
   border-radius: 10px;
   max-width: 500px;
   font-family: Arial, Helvetica, sans-serif;
-  background: #e3f2f0;
+  background: #d2f2ef;
 }
 
 #animation {
   display: block;
   margin: 0 auto;
+}
+
+#iconElement {
+  max-width: 50px;
 }

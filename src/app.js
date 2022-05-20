@@ -1,11 +1,17 @@
 //Weather API start
 
 function displayTemperature(response) {
-  let h1 = document.querySelector("h1");
-  let temperature = Math.round(response.data.main.temp);
-  let description = response.data.weather[0].description;
-  let city = response.data.name;
-  h1.innerHTML = `It is ${temperature}<sup>°C</sup> with ${description} in ${city} right now`;
+  let tempElement = document.querySelector("#tempElement");
+  let descriptionElement = document.querySelector("#descriptionElement");
+  let cityElement = document.querySelector("#cityElement");
+  let iconElement = document.querySelector("#iconElement");
+  tempElement.innerHTML = Math.round(response.data.main.temp);
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  cityElement.innerHTML = response.data.name;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 let weatherApiKey = "ad4802884d586a02c0e38d20a9a32180";
@@ -51,7 +57,50 @@ let month = months[now.getMonth()];
 let days = ["Sun", "Mon", "Tues", "Wednes", "Thurs", "Fri", "Satur"];
 let day = days[now.getDay()];
 
-let h2 = document.querySelector("h2");
-h2.innerHTML = `(${day}day, ${month} ${date}, ${year} at ${hours}:${minutes})`;
+let dayElement = document.querySelector("#dayElement");
+let monthElement = document.querySelector("#monthElement");
+let dateElement = document.querySelector("#dateElement");
+let yearElement = document.querySelector("#yearElement");
+let hoursElement = document.querySelector("#hoursElement");
+let minutesElement = document.querySelector("#minutesElement");
+
+dayElement.innerHTML = `${day}`;
+monthElement.innerHTML = `${month}`;
+dateElement.innerHTML = `${date}`;
+yearElement.innerHTML = `${year}`;
+hoursElement.innerHTML = `${hours}`;
+minutesElement.innerHTML = `${minutes}`;
 
 //Date and time end
+
+//Geolocation start
+
+function showWeather(response) {
+  let tempElement = document.querySelector("#tempElement");
+  let descriptionElement = document.querySelector("#descriptionElement");
+  let cityElement = document.querySelector("#cityElement");
+  let iconElement = document.querySelector("#iconElement");
+  tempElement.innerHTML = Math.round(response.data.main.temp);
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  cityElement.innerHTML = response.data.name;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+}
+
+function showPosition(position) {
+  let apiKey = "ad4802884d586a02c0e38d20a9a32180";
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(url).then(showWeather);
+}
+function getCurrentPosition() {
+  navigator.geolocation.getCurrentPosition(showPosition);
+}
+
+let locationButton = document.querySelector("#locationButton");
+locationButton.addEventListener("click", getCurrentPosition);
+
+//Geolocation end
