@@ -4,10 +4,17 @@ function displayTemperature(response) {
   let tempElement = document.querySelector("#tempElement");
   let descriptionElement = document.querySelector("#descriptionElement");
   let cityElement = document.querySelector("#cityElement");
+  let humidityElement = document.querySelector("#humidityElement");
+  let windElement = document.querySelector("#windElement");
   let iconElement = document.querySelector("#iconElement");
-  tempElement.innerHTML = Math.round(response.data.main.temp);
+
+  celsius = response.data.main.temp;
+
+  tempElement.innerHTML = Math.round(celsius);
   descriptionElement.innerHTML = response.data.weather[0].description;
   cityElement.innerHTML = response.data.name;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -125,3 +132,32 @@ let locationButton = document.querySelector("#locationButton");
 locationButton.addEventListener("click", getCurrentPosition);
 
 //Geolocation end
+
+//Temperature conversion start
+
+let celsius = null;
+
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#tempElement");
+  let fahrenheitTemp = (celsius * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(fahrenheitTemp);
+  celsiusElement.classList.remove("active");
+  fahrenheitElement.classList.add("active");
+}
+
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#tempElement");
+  tempElement.innerHTML = Math.round(celsius);
+  celsiusElement.classList.add("active");
+  fahrenheitElement.classList.remove("active");
+}
+
+let fahrenheitElement = document.querySelector("#fahrenheitElement");
+fahrenheitElement.addEventListener("click", displayFahrenheitTemp);
+
+let celsiusElement = document.querySelector("#celsiusElement");
+celsiusElement.addEventListener("click", displayCelsiusTemp);
+
+//Temperature conversion start

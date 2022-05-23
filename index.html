@@ -18,11 +18,14 @@
     <div class="container" id="box">
       <header>
         <h1>
-          It is <span id="tempElement"></span><sup>°C</sup> with
+          It is <span id="tempElement"></span><sup><a href="#" id="celsiusElement" class="active">°C</a>|<a href="#" id="fahrenheitElement">°F</a></sup> with
           <span id="descriptionElement"></span
           > in
           <span id="cityElement"></span> right now<img src="" alt="weather icon" id="iconElement" />
         </h1>
+        <p>
+          Humidity is at <span id="humidityElement"></span>% and the wind is blowing with <span id="windElement"></span> km/h
+        </p>
         <h2>
           Last updated: <span id="dayElement"></span>day,
           <span id="monthElement"></span> <span id="dateElement"></span>,
@@ -55,7 +58,7 @@
             class="btn btn-link btn-sm"
             id="locationButton"
           >
-            <lottie-player
+           <lottie-player
               src="https://assets1.lottiefiles.com/packages/lf20_ptfmt0ts.json"
               background="transparent"
               speed="0.75"
