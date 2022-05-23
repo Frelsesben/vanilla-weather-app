@@ -16,11 +16,12 @@ h1 {
   padding: 50px 10px 5px 10px;
   font-size: xx-large;
   color: #383233;
+  text-transform: uppercase;
+  font-family: "Fjalla One", sans-serif;
 }
 
 h2 {
   font-size: small;
-  font-weight: bold;
   color: #518984;
   margin: 5px;
   padding: 15px 10px 15px 10px;
@@ -30,7 +31,6 @@ h2 {
 h3 {
   text-align: right;
   font-size: small;
-  font-weight: bold;
   color: #d9534d;
 }
 
@@ -40,7 +40,10 @@ h4 {
   margin: 5px;
   padding: 5px;
   color: #383233;
+  text-transform: uppercase;
+  font-family: "Fjalla One", sans-serif;
 }
+
 h6 {
   text-align: center;
   font-size: small;
@@ -51,7 +54,6 @@ h6 {
 
 p {
   font-size: small;
-  font-weight: bold;
   margin: 5px;
   padding: 10px 10px 0px 10px;
   text-align: left;
@@ -62,7 +64,7 @@ p {
   margin: 15px auto;
   border-radius: 10px;
   max-width: 500px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "DM Sans", sans-serif;
   background: #d2f2ef;
 }
 
