@@ -160,4 +160,35 @@ fahrenheitElement.addEventListener("click", displayFahrenheitTemp);
 let celsiusElement = document.querySelector("#celsiusElement");
 celsiusElement.addEventListener("click", displayCelsiusTemp);
 
-//Temperature conversion start
+//Temperature conversion end
+
+//Weather forecast start
+function displayForecastDays() {
+  let forecastDaysElement = document.querySelector("#forecastDaysElement");
+  forecastDaysElement.innerHTML = ` <h4>Upcoming days</h4>
+          <ul class="list-group">
+            <li class="list-group-item">
+              ☀️ <br />
+              13:00 <br />
+              11°C
+            </li>
+            <li class="list-group-item">
+              ☀️ <br />
+              13:00 <br />
+              11°C
+            </li>
+            <li class="list-group-item">
+              ☀️ <br />
+              13:00 <br />
+              11°C
+            </li>
+            <li class="list-group-item">
+              ☀️ <br />
+              13:00 <br />
+              11°C
+            </li>
+          </ul>`;
+}
+
+displayForecastDays();
+//Weather forecast end
