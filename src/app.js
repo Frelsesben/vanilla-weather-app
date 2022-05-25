@@ -172,8 +172,17 @@ celsiusElement.addEventListener("click", displayCelsiusTemp);
 //Temperature conversion end
 
 //Weather forecast start
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wednes", "Thurs", "Fri", "Satur"];
+
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecastResponse = response.data.daily;
+
   let forecastElement = document.querySelector("#forecastElement");
 
   let forecastHoursHTML = `<div class="col-6">
@@ -194,17 +203,24 @@ function displayForecast(response) {
   let forecastDaysHTML = `<div class="col-6">
   <h4>Upcoming days</h4>`;
 
-  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
-  days.forEach(function (day) {
-    forecastDaysHTML =
-      forecastDaysHTML +
-      `<ul class="list-group">
+  forecastResponse.forEach(function (forecastDay, index) {
+    if (index > 0 && index < 6) {
+      forecastDaysHTML =
+        forecastDaysHTML +
+        `<ul class="list-group">
             <li class="list-group-item">
-              ☀️ <br />
-              ${day} <br />
-              11°C
+              <img src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png" id="forecastIcon" /> <br />
+              ${formatDay(forecastDay.dt)}day <br />
+              <strong>${Math.round(
+                forecastDay.temp.max
+              )}<sup>°</sup></strong> ${Math.round(
+          forecastDay.temp.min
+        )}<sup>°</sup>
             </li>
           </ul>`;
+    }
   });
 
   forecastDaysHTML = forecastDaysHTML + `</div>`;
