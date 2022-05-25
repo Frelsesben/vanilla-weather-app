@@ -95,10 +95,14 @@ function search(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#cityInputElement");
   let chosenCity = cityInputElement.value;
-  chosenCity = chosenCity.trim().toLowerCase();
-  let cityElement = document.querySelector("#cityElement");
-  cityElement.innerHTML =
-    chosenCity.charAt(0).toUpperCase() + chosenCity.slice(1);
+  if (cityInputElement.value.length == 0) {
+    alert("You forgot to type a city 👀");
+  } else {
+    chosenCity = chosenCity.trim().toLowerCase();
+    let cityElement = document.querySelector("#cityElement");
+    cityElement.innerHTML =
+      chosenCity.charAt(0).toUpperCase() + chosenCity.slice(1);
+  }
   let weatherApiKey = "ad4802884d586a02c0e38d20a9a32180";
   let weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${chosenCity}&appid=${weatherApiKey}&units=metric`;
 
@@ -159,6 +163,7 @@ celsiusElement.addEventListener("click", displayCelsiusTemp);
 //Temperature conversion end
 
 //Weather forecast start
+
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -214,4 +219,5 @@ function displayForecast(response) {
 
   forecastElement.innerHTML = forecastHoursHTML + forecastDaysHTML;
 }
+
 //Weather forecast end
