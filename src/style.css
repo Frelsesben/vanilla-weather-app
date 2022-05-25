@@ -85,3 +85,7 @@ p {
 #iconElement {
   max-width: 40px;
 }
+
+#forecastElement {
+  text-align: center;
+}

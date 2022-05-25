@@ -164,30 +164,42 @@ celsiusElement.addEventListener("click", displayCelsiusTemp);
 
 //Weather forecast start
 function displayForecastDays() {
-  let forecastDaysElement = document.querySelector("#forecastDaysElement");
-  forecastDaysElement.innerHTML = ` <h4>Upcoming days</h4>
-          <ul class="list-group">
+  let forecastElement = document.querySelector("#forecastElement");
+
+  let forecastHoursHTML = `<div class="col-6">
+            <h4>Upcoming hours</h4>`;
+
+  forecastHoursHTML =
+    forecastHoursHTML +
+    `<ul class="list-group">
+              <li class="list-group-item">
+                ☀️ <br />
+                13:00 <br />
+                <strong>15<sup>°</sup></strong> 11<sup>°</sup>
+              </li>
+            </ul>`;
+
+  forecastHoursHTML = forecastHoursHTML + `</div>`;
+
+  let forecastDaysHTML = `<div class="col-6">
+  <h4>Upcoming days</h4>`;
+
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastDaysHTML =
+      forecastDaysHTML +
+      `<ul class="list-group">
             <li class="list-group-item">
               ☀️ <br />
-              13:00 <br />
-              11°C
-            </li>
-            <li class="list-group-item">
-              ☀️ <br />
-              13:00 <br />
-              11°C
-            </li>
-            <li class="list-group-item">
-              ☀️ <br />
-              13:00 <br />
-              11°C
-            </li>
-            <li class="list-group-item">
-              ☀️ <br />
-              13:00 <br />
+              ${day} <br />
               11°C
             </li>
           </ul>`;
+  });
+
+  forecastDaysHTML = forecastDaysHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHoursHTML + forecastDaysHTML;
 }
 
 displayForecastDays();
