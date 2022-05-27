@@ -60,6 +60,10 @@ p {
   color: #48484a;
 }
 
+.forecast-icon {
+  max-width: 40px;
+}
+
 #box {
   margin: 15px auto;
   border-radius: 10px;
@@ -82,14 +86,6 @@ p {
   margin: 0 auto;
 }
 
-#iconElement {
-  max-width: 40px;
-}
-
 #forecastElement {
   text-align: center;
-}
-
-#forecastIcon {
-  max-width: 40px;
 }

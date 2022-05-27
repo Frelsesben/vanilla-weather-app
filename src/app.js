@@ -3,7 +3,6 @@
 function getForecast(coordinates) {
   let apiKey = "ad4802884d586a02c0e38d20a9a32180";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -172,44 +171,58 @@ function formatDay(timestamp) {
   return days[day];
 }
 
-function displayForecast(response) {
-  let forecastResponse = response.data.daily;
+function formatHours(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let hours = date.getHours();
+  return hours;
+}
 
+function displayForecast(response) {
+  let forecastResponseDays = response.data.daily;
+  let forecastResponseHours = response.data.hourly;
   let forecastElement = document.querySelector("#forecastElement");
 
   let forecastHoursHTML = `<div class="col-6">
-            <h4>Upcoming hours</h4>`;
+    <h4>Upcoming hours</h4>`;
 
-  forecastHoursHTML =
-    forecastHoursHTML +
-    `<ul class="list-group">
-              <li class="list-group-item">
-                ☀️ <br />
-                13:00 <br />
-                <strong>15<sup>°</sup></strong> 11<sup>°</sup>
-              </li>
-            </ul>`;
+  forecastResponseHours.forEach(function (forecastHour, index) {
+    if (index > 0 && index < 5) {
+      forecastHoursHTML =
+        forecastHoursHTML +
+        `<ul class="list-group">
+            <li class="list-group-item">
+              <img src="http://openweathermap.org/img/wn/${
+                forecastHour.weather[0].icon
+              }@2x.png" class="forecast-icon" /> <br />
+              <strong>${formatHours(forecastHour.dt)}:00</strong> <br />
+              <em>${Math.round(forecastHour.temp)}<sup>°</sup> with ${
+          forecastHour.weather[0].description
+        }</em>
+            </li>
+          </ul>`;
+    }
+  });
 
   forecastHoursHTML = forecastHoursHTML + `</div>`;
 
   let forecastDaysHTML = `<div class="col-6">
   <h4>Upcoming days</h4>`;
 
-  forecastResponse.forEach(function (forecastDay, index) {
-    if (index > 0 && index < 6) {
+  forecastResponseDays.forEach(function (forecastDay, index) {
+    if (index > 0 && index < 5) {
       forecastDaysHTML =
         forecastDaysHTML +
         `<ul class="list-group">
             <li class="list-group-item">
               <img src="http://openweathermap.org/img/wn/${
                 forecastDay.weather[0].icon
-              }@2x.png" id="forecastIcon" /> <br />
-              ${formatDay(forecastDay.dt)}day <br />
-              <strong>${Math.round(
+              }@2x.png" class="forecast-icon" /> <br />
+              <strong>${formatDay(forecastDay.dt)}day</strong> <br />
+              <em>Max: ${Math.round(
                 forecastDay.temp.max
-              )}<sup>°</sup></strong> ${Math.round(
+              )}<sup>°</sup> Min: ${Math.round(
           forecastDay.temp.min
-        )}<sup>°</sup>
+        )}<sup>°</sup></em>
             </li>
           </ul>`;
     }
