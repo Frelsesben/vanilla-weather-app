@@ -195,7 +195,7 @@ function displayForecast(response) {
                 forecastHour.weather[0].icon
               }@2x.png" class="forecast-icon" /> <br />
               <strong>${formatHours(forecastHour.dt)}:00</strong> <br />
-              <em>${Math.round(forecastHour.temp)}<sup>°</sup> with ${
+              <em>${Math.round(forecastHour.temp)}<sup>°c</sup> with ${
           forecastHour.weather[0].description
         }</em>
             </li>
@@ -220,9 +220,9 @@ function displayForecast(response) {
               <strong>${formatDay(forecastDay.dt)}day</strong> <br />
               <em>Max: ${Math.round(
                 forecastDay.temp.max
-              )}<sup>°</sup> Min: ${Math.round(
+              )}<sup>°c</sup> Min: ${Math.round(
           forecastDay.temp.min
-        )}<sup>°</sup></em>
+        )}<sup>°c</sup></em>
             </li>
           </ul>`;
     }
