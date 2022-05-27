@@ -23,7 +23,7 @@ function displayTemperature(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 
   getForecast(response.data.coord);
@@ -191,7 +191,7 @@ function displayForecast(response) {
         forecastHoursHTML +
         `<ul class="list-group">
             <li class="list-group-item">
-              <img src="http://openweathermap.org/img/wn/${
+              <img src="https://openweathermap.org/img/wn/${
                 forecastHour.weather[0].icon
               }@2x.png" class="forecast-icon" /> <br />
               <strong>${formatHours(forecastHour.dt)}:00</strong> <br />
@@ -214,7 +214,7 @@ function displayForecast(response) {
         forecastDaysHTML +
         `<ul class="list-group">
             <li class="list-group-item">
-              <img src="http://openweathermap.org/img/wn/${
+              <img src="https://openweathermap.org/img/wn/${
                 forecastDay.weather[0].icon
               }@2x.png" class="forecast-icon" /> <br />
               <strong>${formatDay(forecastDay.dt)}day</strong> <br />
