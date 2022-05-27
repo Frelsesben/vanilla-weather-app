@@ -4,7 +4,7 @@ body {
 
 a {
   text-decoration: none;
-  color: grey;
+  color: #d3e1eb;
 }
 
 a:hover {
@@ -13,7 +13,7 @@ a:hover {
 
 h1 {
   text-align: center;
-  padding: 50px 10px 5px 10px;
+  padding: 0px 10px 10px 10px;
   font-size: xx-large;
   color: #383233;
   text-transform: uppercase;
@@ -22,16 +22,10 @@ h1 {
 
 h2 {
   font-size: small;
-  color: #518984;
+  color: #48484a;
   margin: 5px;
   padding: 15px 10px 15px 10px;
   text-align: left;
-}
-
-h3 {
-  text-align: right;
-  font-size: small;
-  color: #d9534d;
 }
 
 h4 {
@@ -47,8 +41,7 @@ h4 {
 h6 {
   text-align: center;
   font-size: small;
-  font-weight: normal;
-  padding: 15px 10px 15px 10px;
+  padding: 10px 10px 25px 10px;
   color: #383233;
 }
 
@@ -60,6 +53,12 @@ p {
   color: #48484a;
 }
 
+.list-group-item {
+  background: linear-gradient(to bottom, #ffcb6d, #ffdb8e);
+  border: 1px solid #ffcb6d;
+  margin-bottom: 10px;
+}
+
 .forecast-icon {
   max-width: 40px;
 }
@@ -69,7 +68,7 @@ p {
   border-radius: 10px;
   max-width: 500px;
   font-family: "DM Sans", sans-serif;
-  background: #d2f2ef;
+  background: linear-gradient(to bottom, #a4dfdb, #80bfb8);
 }
 
 #box .active {
@@ -84,8 +83,18 @@ p {
 #animation {
   display: block;
   margin: 0 auto;
+  padding-top: 35px;
 }
 
 #forecastElement {
   text-align: center;
+}
+
+#iconElement {
+  max-width: 40%;
+  margin-bottom: 5px;
+}
+
+#searchBar {
+  padding: 0px 0px 0px 25px;
 }

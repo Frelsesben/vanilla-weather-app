@@ -23,7 +23,7 @@ function displayTemperature(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
   iconElement.setAttribute(
     "src",
-    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `src/media/openweathermap/${response.data.weather[0].icon}.svg`
   );
 
   getForecast(response.data.coord);
@@ -191,9 +191,9 @@ function displayForecast(response) {
         forecastHoursHTML +
         `<ul class="list-group">
             <li class="list-group-item">
-              <img src="https://openweathermap.org/img/wn/${
+              <img src="src/media/openweathermap/${
                 forecastHour.weather[0].icon
-              }@2x.png" class="forecast-icon" /> <br />
+              }.svg" class="forecast-icon" /> <br />
               <strong>${formatHours(forecastHour.dt)}:00</strong> <br />
               <em>${Math.round(forecastHour.temp)}<sup>°c</sup> with ${
           forecastHour.weather[0].description
@@ -214,9 +214,9 @@ function displayForecast(response) {
         forecastDaysHTML +
         `<ul class="list-group">
             <li class="list-group-item">
-              <img src="https://openweathermap.org/img/wn/${
+              <img src="src/media/openweathermap/${
                 forecastDay.weather[0].icon
-              }@2x.png" class="forecast-icon" /> <br />
+              }.svg" class="forecast-icon" /> <br />
               <strong>${formatDay(forecastDay.dt)}day</strong> <br />
               <em>Max: ${Math.round(
                 forecastDay.temp.max
